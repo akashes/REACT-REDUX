@@ -6,8 +6,8 @@ const initialState={
 
 switch(action.type){
     case 'ORDER_BURGER':
-            return {...state,burgerBase:state.burgerBase-1}
-            default :
+        return action.payload ?     {...state,burgerBase:state.burgerBase-action.payload} :{...state,burgerBase:state.burgerBase-1}
+        default :
             return state
 }
 

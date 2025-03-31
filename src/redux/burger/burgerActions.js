@@ -1,7 +1,8 @@
 import { ORDER_BURGER } from "./burgerTypes"
 
-export const orderBurger=()=>{
+export const orderBurger=(count)=>{
     return{
-        type:ORDER_BURGER
+        type:ORDER_BURGER,
+        payload:count
     }
 }

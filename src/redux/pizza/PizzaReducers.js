@@ -9,7 +9,8 @@ const initialState ={
     switch(action.type){
 
         case ORDER_PIZZA:
-            return{...state,pizzaBase:state.pizzaBase-1}
+            console.log(action.payload)
+            return action.payload ?     {...state,pizzaBase:state.pizzaBase-action.payload} :{...state,pizzaBase:state.pizzaBase-1}
 
             default:
                 return state
