@@ -1,28 +1,18 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { orderPizza } from '../redux'
-import { connect } from 'react-redux'
-const PizzaBox = (props) => {
-  console.log(props)
+
+const PizzaBox = () => {
+  const pizzaBase =useSelector(state=>state.pizza.pizzaBase)
+  const dispatch = useDispatch() // returns a ref to the dispatch function in the store
+
   return (
     <div className="container">
-    <h2 className="text">Number of Pizza Base Available -{props.pizzaBase} </h2>
-    <button onClick={props.orderPizza} className="btn">Order Pizza</button>
+    <h2 className="text">Number of Pizza Base Available - {pizzaBase}  </h2>
+    <button  className="btn" onClick={()=>dispatch(orderPizza())}>Order Pizza</button>
   </div> 
   )
 }
 
-const mapStateToProps=(state)=>{
-  return{
 
-    pizzaBase : state.pizza.pizzaBase
-  }
-
-
-}
-const mapDispatchToProps=(dispatch)=>{
-  return{
-    orderPizza:()=>dispatch(orderPizza())
-  }
-
-}
-export default connect(mapStateToProps,mapDispatchToProps) (PizzaBox)
+export default  PizzaBox
